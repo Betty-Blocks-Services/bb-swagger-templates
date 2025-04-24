@@ -1,0 +1,47 @@
+{
+  "swagger" : "2.0",
+  "info": {
+    "title": "Audit Log",
+    "description": "Returns the differences between new and old",
+    "version": "1"
+  },
+  "basePath" : "/swagger-audit-log",
+  "tags" : [ {
+    "name" : "Swagger Audit Log"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/request": {
+      "get" : {
+        "tags" : [ "Log", "Diff" ],
+        "summary" : "Returns the differences between new and old",
+        "description" : "",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "$ref" : "#/definitions/AuditLogDifferences"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AuditLogDifferences": {
+      "type": "object",
+      "properties": {
+        "Label": {
+          "type": "string"
+        },
+        "New value": {
+          "type": "string"
+        },
+        "Old value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
